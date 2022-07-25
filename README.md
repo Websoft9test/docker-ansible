@@ -16,7 +16,7 @@ The following are the minimal [recommended requirements](https://docs.ansible.co
 * **Public Cloud**: More than 20+ major Cloud such as AWS, Azure, Google Cloud, Alibaba Cloud, HUAWEIClOUD, Tencent Cloud
 * **Private Cloud**: KVM, VMware, VirtualBox, OpenStack
 * **ARCH**:  Linux x86-64, ARM 32/64, x86/i686
-* **RAM**: 1 GB or more
+* **RAM**: 2 GB or more
 * **CPU**: 1 cores or higher
 * **HDD**: at least 20 GB of free space
 * **Swap file**: at least 2 GB
@@ -56,6 +56,8 @@ curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 sudo systemctl enable docker
 sudo systemctl start docker
 alias docker-compose='docker compose'
+echo "alias docker-compose='docker compose'" >> /etc/profile.d/docker-compose.sh
+source /etc/profile.d/docker-compose.sh
 ```
 
 #### Install Ansible
@@ -65,7 +67,8 @@ We assume that you are already familiar with Docker, and you can modify [docker-
 ```
 git clone --depth=1 https://github.com/Websoft9/docker-ansible
 cd docker-ansible
-docker-compose  up -d
+docker network create websoft9 
+docker compose  up -d
 ```
 
 ### FAQ

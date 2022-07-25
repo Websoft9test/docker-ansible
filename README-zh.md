@@ -16,7 +16,7 @@
 * **公有云**: AWS, Azure, Google Cloud, 阿里云, 腾讯云, 华为云等20多个全球主流云
 * **私有云**: KVM, VMware, VirtualBox, OpenStack 等主流虚拟化架构
 * **CPU架构**: Linux x86-64, ARM 32/64, x86/i686
-* **内存**: 1GB以上
+* **内存**: 2GB以上
 * **CPU**: 1核以上
 * **存储**: 20GB以上
 * **Swap分区**: 2GB以上
@@ -60,6 +60,8 @@ curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 sudo systemctl enable docker
 sudo systemctl start docker
 alias docker-compose='docker compose'
+echo "alias docker-compose='docker compose'" >> /etc/profile.d/docker-compose.sh
+source /etc/profile.d/docker-compose.sh
 ```
 
 #### 安装 Ansible
@@ -69,7 +71,8 @@ alias docker-compose='docker compose'
 ```
 git clone --depth=1 https://github.com/Websoft9/docker-ansible
 cd docker-ansible
-sudo docker-compose up -d
+sudo docker network create websoft9 
+sudo docker compose up -d
 ```
 
 ### 常见问题
